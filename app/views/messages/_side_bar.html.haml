@@ -2,12 +2,12 @@
   .user__name
     .top__items
       .top__items__name
-        makoto
+      =current_user.name
       .top__items__icons
         =link_to "#", class:"icons--btn" do
           =icon('far', 'edit')
-        =link_to "#", class: "icons--btn" do
-          =icon('fas', 'cog')
+        = link_to edit_user_path(current_user) do
+          = icon('fas', 'cog', class: 'icons--btn')
   .groups
     .groups__group
       .groups__group__groupName
