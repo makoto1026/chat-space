@@ -1,0 +1,45 @@
+.main-chat
+  .header
+    .header__left
+      .header__left--text
+        test
+      .header__left--member
+        member:makoto
+    .header__right   
+    = link_to "#", class: "edit" do
+      Edit
+
+  .message__list
+    .message__list__post
+      .message__list__post__name
+        makoto
+      .message__list__post__day
+        2019/3/3(Tus) 13:30:30
+    .message__list__text
+      おはよう
+    .message__list__post
+      .message__list__post__name
+        makoto
+      .message__list__post__day
+        2019/3/3(Tus) 13:30:30
+    .message__list__text
+      おはよう
+    .message__list__post
+      .message__list__post__name
+        makoto
+      .message__list__post__day
+        2019/3/3(Tus) 13:30:30
+    .message__list__text
+      おはよう
+
+  .message__form
+    .message__form__text
+      .message__form__text__area
+        type a message
+      %label{class: "input-box__image"}
+        = icon('fas', 'image')
+        %input{type: "file"}        
+
+    .message__form__text--btn
+    = link_to "#", class: "send" do
+      Send
