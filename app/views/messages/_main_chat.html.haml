@@ -2,44 +2,28 @@
   .header
     .header__left
       .header__left--text
-        test
+        =@group.name
       .header__left--member
-        member:makoto
-    .header__right   
-    = link_to "#", class: "edit" do
-      Edit
+        .ul
+          .list
+          Member：
+          .list
+          -@group.group_users.each do |group_user|
+            =group_user.user.name
 
-  .message__list
-    .message__list__post
-      .message__list__post__name
-        makoto
-      .message__list__post__day
-        2019/3/3(Tus) 13:30:30
-    .message__list__text
-      おはよう
-    .message__list__post
-      .message__list__post__name
-        makoto
-      .message__list__post__day
-        2019/3/3(Tus) 13:30:30
-    .message__list__text
-      おはよう
-    .message__list__post
-      .message__list__post__name
-        makoto
-      .message__list__post__day
-        2019/3/3(Tus) 13:30:30
-    .message__list__text
-      おはよう
+          
+    .header__right   
+    = link_to "Edit", edit_group_path(@group.id), class: "edit" 
+      
+
+  .message__list   
+    = render @messages
+
 
   .message__form
-    .message__form__text
-      .message__form__text__area
-        type a message
-      %label{class: "input-box__image"}
+    =form_for [@group, @message] do |f|
+      = f.text_field :content, class: 'message__form__text', placeholder: 'type a message'
+      = f.label :image, class: "input-box__image" do
         = icon('fas', 'image')
-        %input{type: "file"}        
-
-    .message__form__text--btn
-    = link_to "#", class: "send" do
-      Send
+        = f.file_field :image      
+      = f.submit 'Send', class: 'form__submit'
