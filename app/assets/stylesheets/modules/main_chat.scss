@@ -50,6 +50,8 @@
   display: flex;
   flex-direction: column;
   padding: 35px 40px;
+  overflow: scroll;
+  box-sizing: border-box;
   &__post {
     display: flex;
     margin-bottom: 12px;
