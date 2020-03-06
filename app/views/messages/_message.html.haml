@@ -1,9 +1,9 @@
-.message__list__post
+.message__list__post{data: {message: {id: message.id}}}
   .message__list__post__name
     = message.user.name
   .message__list__post__day
     = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
-.message__list__text
+.message__list__text{data: {message: {id: message.id}}}
   - if message.content.present?
     %p.lower-message__content
       = message.content
