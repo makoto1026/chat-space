@@ -1,47 +1,50 @@
 $(function() {
   var buildHTML = function(message){
     if(message.content && message.image) {
-      var html =`<div class="message__list__post" data-message-id=` + message.id + `>` +
-            `<div class="message__list__post__name">` +
-              message.user_name +
-            `</div>` +
-            `<div class="message__list__post__day">` +
-              message.created_at +
-            `</div>` +
-          `</div>` +
-          `<div class="message__list__text">` +
-            `<p class="lower-message__content">` +
-              message.content +
-            `</p>` +
-          `</div>` +
-          `<img src="` + message.image + `">` +
-        `</div>`
+      var html =`
+                  <div class="message__list__post" data-message-id=${message.id}>
+                    <div class="message__list__post__name">
+                      ${message.user_name} 
+                    </div>
+                    <div class="message__list__post__day">
+                      ${message.created_at}
+                    </div>
+                  </div>
+                  <div class="message__list__text">
+                    <p class="lower-message__content">
+                    ${message.content}
+                    </p>
+                  </div>
+                  <img src=${message.image}
+                `
     } else if (message.content) {
-      var html =`<div class="message__list__post" data-message-id=` + message.id + `>` +
-            `<div class="message__list__post__name">` +
-              message.user_name +
-            `</div>` +
-            `<div class="message__list__post__day">` +
-              message.created_at +
-            `</div>` +
-          `</div>` +
-          `<div class="message__list__text">` +
-            `<p class="lower-message__content">` +
-              message.content +
-            `</p>` +
-          `</div>` +
-        `</div>`
+      var html =`
+                  <div class="message__list__post" data-message-id=${message.id}>
+                    <div class="message__list__post__name">
+                      ${message.user_name}
+                    </div>
+                    <div class="message__list__post__day">
+                      ${message.created_at}
+                    </div>
+                  </div>
+                  <div class="message__list__text">
+                    <p class="lower-message__content">
+                    ${message.content}
+                    </p>
+                  </div>
+                `
     } else if (message.image) { 
-      var html =`<div class="message__list__post" data-message-id=` + message.id + `>` +
-            `<div class="message__list__post__name">` +
-              message.user_name +
-            `</div>` +
-            `<div class="message__list__post__day">` +
-              message.created_at +
-            `</div>` +
-          `</div>` +
-          `<img src="` + message.image + `">` +
-        `</div>`
+      var html =`
+                  <div class = "message__list__post" data-message-id = ${message.id} > 
+                    <div class = "message__list__post__name">
+                      ${message.user_name}
+                    </div>
+                    <div class = "message__list__post__day">
+                      ${message.created_at}
+                    </div>
+                  </div>
+                  <img src = ${message.image} >
+                `
     };
     return html;
   };
@@ -88,6 +91,9 @@ $(function() {
       $('.message__list').append(insertHTML);
       $('.message__list').animate({ scrollTop: $('.message__list')[0].scrollHeight });
       }
+    })
+    .fail(function() {
+      alert('更新できませんでした。ごめんなさい。');
     })
   };
   if (document.location.href.match(/\/groups\/\d+\/message/)) {
