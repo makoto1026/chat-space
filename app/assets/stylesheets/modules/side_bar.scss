@@ -7,6 +7,7 @@
   background-color: #253141;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .top__items {
@@ -15,12 +16,11 @@
   font-size: 16px;
   font-weight: bold;
   color: #ffffff;
-  // margin: 0 auto;
   display: flex;
   justify-content: space-between;
   line-height: 20px;
   &__name {
-  
+    
   }
   &__icons {
     width: 60px;
